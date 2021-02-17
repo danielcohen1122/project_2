@@ -1,0 +1,19 @@
+
+.top{
+    height: 120px;
+     background: linear-gradient(rgb(161, 157, 157),rgb(80, 79, 94),rgb(116, 110, 110));
+     font-size: 200%;
+     color: whitesmoke;
+     border-bottom: 3px solid black;
+    }
+
+    #span1{
+        position: absolute;
+        top: 7%;
+        
+    }
+
+.hidden {
+    display: none;
+}
+
