@@ -29,14 +29,6 @@ const moreinfo = async (id, i) => {
         let euroPrice;
         let usdPrice;
 
-/*
- מגירה 1- גרביים ומכנס
- מגירה 2- חולצה
- מגירה 17 - 
-
-
-*/
-
         // לקבל את המידע מהלוקאל סטורג
         const savedData = localStorage.getItem(id);
 
