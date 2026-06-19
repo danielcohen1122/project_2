@@ -4,7 +4,7 @@ const showProgress = ()=>  {
 }
 
 const hideProgress = () => {
-    if($('progrees').hasClass('hidden') === false) {
+    if ($('.progress').hasClass('hidden') === false) {
         $('.progress').addClass('hidden')
-  }
+    }
 }

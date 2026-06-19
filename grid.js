@@ -3,8 +3,8 @@ let coin_arr;
 let coin_arr_origin;
 
 const getCoinsContent = () => {
+  setActiveNav('Crypto');
   $('#container').empty();
-  // $('#container').append(i++)
   GetDataFromAPI();
 
 }

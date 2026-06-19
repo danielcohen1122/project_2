@@ -33,6 +33,7 @@ function updateData() {
 }
 
 const loadLiveReport = () => {
+    setActiveNav('Live reports');
     coinsSymbol = '';
     coinsDataPoints = {};
     coinsSize = fiveCoinList.length;

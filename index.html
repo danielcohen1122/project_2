@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cryptonite — Crypto & Stocks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -19,9 +19,9 @@
     <script src="progress.js"></script>
     <script src="coin_list.js"></script>
     <script src="api.js"></script>
+    <script src="stocks.js"></script>
     <script src="liveReport.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-</head>
 </head>
 
 <body onload="getCoinsContent()">
@@ -30,9 +30,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Replace a coin</h5>
                 </div>
                 <div class="modal-body">
+                    <p class="text-muted">You already track 5 coins. Turn one off to add a new one.</p>
                     <div id="coin-0"></div>
                     <div id="coin-1"></div>
                     <div id="coin-2"></div>
@@ -54,11 +55,12 @@
 
     <div class="top">
         <span id="span1">Cryptonite</span>
+        <span id="tagline">Live Crypto &amp; Stock Market Tracker</span>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" onclick="getCoinsContent()">Home</a>
+            <a class="navbar-brand" href="#" onclick="getCoinsContent()">Crypto</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -67,17 +69,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" onclick="loadLiveReport()">Live reports</a>
+                        <a class="nav-link active" aria-current="page" href="#" onclick="getCoinsContent()">Crypto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">About</a>
+                        <a class="nav-link" href="#" onclick="loadStocks()">Stocks</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadLiveReport()">Live reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showAbout()">About</a>
+                    </li>
+                </ul>
 
-
-                    <div class="d-flex">
-                        <input id="searchInput" class="form-control me-2" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" onclick="searchCoin()">Search</button>
-                    </div>
+                <div class="d-flex">
+                    <input id="searchInput" class="form-control me-2" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-search" onclick="searchCoin()">Search</button>
+                </div>
             </div>
         </div>
     </nav>
