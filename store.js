@@ -81,6 +81,9 @@ function submitOrder(e) {
     btn.classList.add('loading');
   }
 
+  const qty = parseInt(document.getElementById('quantity')?.value || '1', 10);
+  const value = qty === 1 ? 1099 : 1999;
+
   // Simulate API call — replace with real endpoint
   setTimeout(() => {
     if (btn) {
@@ -88,6 +91,20 @@ function submitOrder(e) {
       btn.classList.remove('loading');
     }
     console.log('Order:', fields);
+
+    // Facebook Pixel Purchase event
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', { value, currency: 'ILS', content_name: 'TriScreen Pro 15.6' });
+    }
+    // TikTok Pixel Purchase event
+    if (typeof ttq !== 'undefined') {
+      ttq.track('PlaceAnOrder', { value, currency: 'ILS' });
+    }
+    // Google Analytics Purchase event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'purchase', { value, currency: 'ILS', transaction_id: Date.now() });
+    }
+
     e.target.reset();
     showModal();
   }, 1400);

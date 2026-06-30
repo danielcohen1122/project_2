@@ -1004,3 +1004,28 @@ body {
   .btn-order { font-size: 17px; padding: 15px; }
   .modal-card { padding: 40px 24px; }
 }
+
+/* ===== WHATSAPP FLOATING BUTTON ===== */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 88px;
+  left: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  color: #fff;
+  text-decoration: none;
+  z-index: 900;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+.whatsapp-btn svg { width: 30px; height: 30px; }
+
+@media (min-width: 769px) {
+  .whatsapp-btn { bottom: 30px; left: 30px; }
+}
