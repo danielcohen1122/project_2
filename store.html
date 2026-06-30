@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriScreen IL | מסך משולש נייד לעבודה</title>
+  <meta name="description" content="מסך נייד משולש ללפטופ - הכפל את הפרודוקטיביות שלך. חיבור USB-C ב-10 שניות. משלוח מהיר לכל הארץ." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="store.css" />
+</head>
+
+<body>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <div class="header-logo">
+        <span class="logo-icon">&#9651;</span>
+        <span class="logo-text">TriScreen<span class="logo-il">IL</span></span>
+      </div>
+      <a href="#order" class="btn btn-header">הזמן עכשיו</a>
+    </div>
+  </header>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <span>&#128666;</span>&nbsp;משלוח מהיר לכל הארץ &nbsp;|&nbsp; <span>&#128274;</span>&nbsp;תשלום מאובטח &nbsp;|&nbsp; <span>&#9989;</span>&nbsp;30 יום החזרה
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">&#128293; הנמכר ביותר בישראל</div>
+      <h1 class="hero-title">
+        3 מסכים. לפטופ אחד.<br />
+        <span class="hero-highlight">10 שניות חיבור.</span>
+      </h1>
+      <p class="hero-subtitle">
+        מסך נייד משולש 15.6" ב-Full HD — הכפל את הפרודוקטיביות שלך בלי לקנות שולחן חדש.
+        מושלם לעובדי היי-טק, מפתחים, סוחרים ואנשים שרוצים לעבוד יותר חכם.
+      </p>
+
+      <div class="hero-price-box">
+        <div class="price-original">1,299 ₪</div>
+        <div class="price-current">849 ₪</div>
+        <div class="price-badge">חיסכון של 450 ₪</div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#order" class="btn btn-primary btn-lg pulse">
+          <i class="fa fa-cart-shopping"></i>&nbsp; הזמן עכשיו - משלוח חינם
+        </a>
+        <p class="cta-sub">&#8987; נותרו <strong id="stockCount">7</strong> יחידות במחיר זה</p>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item"><i class="fa fa-shield-halved"></i> ערבות 30 יום</div>
+        <div class="trust-item"><i class="fa fa-truck-fast"></i> משלוח 3-5 ימים</div>
+        <div class="trust-item"><i class="fa fa-star"></i> 4.8/5 כוכבים</div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="product-mockup">
+        <div class="screen-container">
+          <div class="screen screen-left">
+            <div class="screen-content">
+              <div class="screen-bar"></div>
+              <div class="screen-line"></div>
+              <div class="screen-line short"></div>
+              <div class="screen-chart"></div>
+            </div>
+          </div>
+          <div class="screen screen-center main-screen">
+            <div class="screen-content">
+              <div class="screen-bar main"></div>
+              <div class="screen-line"></div>
+              <div class="screen-line"></div>
+              <div class="screen-line short"></div>
+              <div class="screen-code">
+                <div class="code-line c1"></div>
+                <div class="code-line c2"></div>
+                <div class="code-line c3"></div>
+                <div class="code-line c4"></div>
+              </div>
+            </div>
+          </div>
+          <div class="screen screen-right">
+            <div class="screen-content">
+              <div class="screen-bar accent"></div>
+              <div class="screen-line"></div>
+              <div class="screen-line short"></div>
+              <div class="screen-stats">
+                <div class="stat-bar" style="height:40%"></div>
+                <div class="stat-bar" style="height:70%"></div>
+                <div class="stat-bar" style="height:55%"></div>
+                <div class="stat-bar" style="height:90%"></div>
+                <div class="stat-bar" style="height:60%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base">
+          <div class="laptop-keyboard"></div>
+        </div>
+        <div class="product-glow"></div>
+      </div>
+      <div class="floating-badge fb1">USB-C</div>
+      <div class="floating-badge fb2">Full HD</div>
+      <div class="floating-badge fb3">15.6"</div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN TIMER -->
+  <div class="countdown-banner">
+    <div class="countdown-inner">
+      <span class="countdown-label">מחיר ההשקה מסתיים בעוד:</span>
+      <div class="countdown-timer">
+        <div class="time-block"><span id="cdHours">23</span><small>שעות</small></div>
+        <div class="time-sep">:</div>
+        <div class="time-block"><span id="cdMinutes">47</span><small>דקות</small></div>
+        <div class="time-sep">:</div>
+        <div class="time-block"><span id="cdSeconds">12</span><small>שניות</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM / SOLUTION -->
+  <section class="problem-section">
+    <div class="container">
+      <h2 class="section-title">מכיר את הבעיה הזו?</h2>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon">&#128544;</div>
+          <p>Alt+Tab כל 30 שניות בין חלונות</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#129300;</div>
+          <p>מסך אחד קטן לכל כך הרבה עבודה</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">&#128181;</div>
+          <p>מסך חיצוני גדול = שולחן + כבלים + 2,000+ ₪</p>
+        </div>
+      </div>
+      <div class="solution-arrow">&#8595;</div>
+      <div class="solution-box">
+        <h3>הפתרון: TriScreen</h3>
+        <p>מסך משולש שנפתח תוך 10 שניות, עובד עם כל לפטופ, ומשנה לחלוטין את הדרך שאתה עובד.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">למה TriScreen?</h2>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-plug"></i></div>
+          <h3>חיבור מיידי</h3>
+          <p>פשוט חבר USB-C — אין דרייברים, אין התקנה, אין כאב ראש. עובד מיד.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-display"></i></div>
+          <h3>Full HD × 2</h3>
+          <p>שני מסכים נוספים ב-1920×1080 מכל צד. תמונה חדה ומושלמת.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-feather"></i></div>
+          <h3>קל ונייד</h3>
+          <p>פחות מ-1.5 ק"ג. נכנס לתיק לפטופ רגיל. עובד מקפה, ממשרד, מכל מקום.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-laptop"></i></div>
+          <h3>תואם לכל לפטופ</h3>
+          <p>Mac, Windows, Linux. כל לפטופ עם USB-C. ב-MacBook עובד מושלם.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-bolt"></i></div>
+          <h3>ללא חשמל חיצוני</h3>
+          <p>מתוח ישירות מהלפטופ. אין כבלים נוספים, אין מתאמים.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-shield-halved"></i></div>
+          <h3>אחריות מלאה</h3>
+          <p>30 יום החזרה ללא שאלות. 12 חודשי אחריות על המוצר.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="container">
+      <h2 class="section-title">איך זה עובד?</h2>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>פתח</h3>
+          <p>פתח את המסכים הצדדיים מהלפטופ שלך — כמו ספר</p>
+        </div>
+        <div class="step-arrow"><i class="fa fa-chevron-left"></i></div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>חבר</h3>
+          <p>חבר USB-C אחד ללפטופ — זה הכל</p>
+        </div>
+        <div class="step-arrow"><i class="fa fa-chevron-left"></i></div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>עבוד</h3>
+          <p>3 מסכים זמינים מיד — תהנה מפרודוקטיביות מקסימלית</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="usecases-section">
+    <div class="container">
+      <h2 class="section-title">מי משתמש ב-TriScreen?</h2>
+      <div class="usecases-grid">
+        <div class="usecase-card">
+          <div class="usecase-emoji">&#128187;</div>
+          <h3>מפתחים</h3>
+          <p>קוד + דוקומנטציה + טרמינל — הכל בו-זמנית</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-emoji">&#128200;</div>
+          <h3>סוחרי קריפטו/מניות</h3>
+          <p>3 גרפים, חדשות ופורטפוליו — כל מה שצריך במבט אחד</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-emoji">&#127968;</div>
+          <h3>עובדי היי-טק מרחוק</h3>
+          <p>Zoom + Slack + עבודה — בלי Alt+Tab</p>
+        </div>
+        <div class="usecase-card">
+          <div class="usecase-emoji">&#127916;</div>
+          <h3>עורכי וידאו/גרפיקה</h3>
+          <p>Timeline + Preview + Assets — שטח עבודה אמיתי</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="section-title">מה אומרים הלקוחות?</h2>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"שינה לי את החיים. עובד מהבית כמפתח פולסטאק — עכשיו יש לי קוד, ריסט API ותיעוד בו-זמנית. לא מבין איך עבדתי בלי זה"</p>
+          <div class="review-author">
+            <div class="review-avatar">י</div>
+            <div>
+              <strong>יובל כ.</strong>
+              <span>מפתח Full Stack, תל אביב</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"אני סוחר קריפטו ומחשב לפטופ אחד היה בעיה. עכשיו 3 גרפים של BTC, ETH ו-SOL — הכל ראוי. ממליץ בחום לכל מי שסוחר"</p>
+          <div class="review-author">
+            <div class="review-avatar">נ</div>
+            <div>
+              <strong>נדב מ.</strong>
+              <span>סוחר קריפטו, חיפה</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"הזמנתי בספקנות, קיבלתי ב-4 ימים. איכות מדהימה, החיבור פשוט, ה-MacBook הכיר אוטומטית. ממליצה בחום!"</p>
+          <div class="review-author">
+            <div class="review-avatar">ש</div>
+            <div>
+              <strong>שירה א.</strong>
+              <span>מנהלת שיווק, ראשון לציון</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER SECTION -->
+  <section class="order-section" id="order">
+    <div class="container">
+      <h2 class="section-title light">הזמינו עכשיו</h2>
+
+      <div class="order-box">
+        <div class="order-product-info">
+          <div class="order-badge">&#128293; מחיר השקה</div>
+          <h3>TriScreen Pro 15.6"</h3>
+          <ul class="order-features-list">
+            <li><i class="fa fa-check"></i> 2 מסכים נוספים × 15.6" Full HD 1080P</li>
+            <li><i class="fa fa-check"></i> חיבור USB-C יחיד</li>
+            <li><i class="fa fa-check"></i> פתיחה ב-10 שניות</li>
+            <li><i class="fa fa-check"></i> תואם Mac/Windows/Linux</li>
+            <li><i class="fa fa-check"></i> 30 יום החזרה ללא שאלות</li>
+            <li><i class="fa fa-check"></i> 12 חודשי אחריות</li>
+          </ul>
+          <div class="order-pricing">
+            <div class="order-price-old">1,299 ₪</div>
+            <div class="order-price-new">849 ₪</div>
+            <div class="order-price-note">כולל משלוח חינם לכל הארץ</div>
+          </div>
+        </div>
+
+        <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
+          <h3>פרטי הזמנה</h3>
+
+          <div class="form-group">
+            <label>שם מלא *</label>
+            <input type="text" id="fullName" placeholder="ישראל ישראלי" required />
+          </div>
+
+          <div class="form-group">
+            <label>טלפון *</label>
+            <input type="tel" id="phone" placeholder="05X-XXXXXXX" required />
+          </div>
+
+          <div class="form-group">
+            <label>אימייל *</label>
+            <input type="email" id="email" placeholder="name@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>כתובת מלאה *</label>
+            <input type="text" id="address" placeholder="רחוב, מספר בית, עיר" required />
+          </div>
+
+          <div class="form-group">
+            <label>כמות</label>
+            <select id="quantity">
+              <option value="1">1 יחידה — 849 ₪</option>
+              <option value="2">2 יחידות — 1,598 ₪ (חיסכון נוסף!)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>אמצעי תשלום</label>
+            <div class="payment-options">
+              <label class="pay-option">
+                <input type="radio" name="payment" value="card" checked />
+                <i class="fa fa-credit-card"></i> כרטיס אשראי
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="paypal" />
+                <i class="fa-brands fa-paypal"></i> PayPal
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="bit" />
+                <i class="fa fa-mobile"></i> Bit
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full pulse">
+            <i class="fa fa-lock"></i>&nbsp; הזמן עכשיו — 849 ₪
+          </button>
+
+          <p class="form-note">
+            <i class="fa fa-shield-halved"></i> תשלום מאובטח |
+            <i class="fa fa-rotate-left"></i> 30 יום החזרה |
+            <i class="fa fa-headset"></i> תמיכה בעברית
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-box">
+      <div class="modal-icon">&#10003;</div>
+      <h2>ההזמנה התקבלה!</h2>
+      <p>תודה! נחזור אליך תוך שעה לאישור ותיאום משלוח.</p>
+      <button class="btn btn-primary" onclick="closeModal()">סגור</button>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">שאלות נפוצות</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            האם זה עובד עם ה-MacBook שלי?
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>כן! TriScreen עובד עם כל MacBook Pro/Air שיש לו חיבור USB-C/Thunderbolt. macOS מכיר אוטומטית ואין צורך בהתקנה.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            תוך כמה זמן מגיע המשלוח?
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>משלוח מהיר 3-5 ימי עסקים לכל הארץ. תקבל SMS עם מספר מעקב תוך 24 שעות מאישור ההזמנה.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            מה מדיניות ההחזרה?
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>30 יום החזרה מלאה ללא שאלות. אם לא מרוצה — תחזיר את המוצר ותקבל החזר כספי מלא.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            האם צריך דרייברים או תוכנות?
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>בכלל לא. חבר את ה-USB-C וסיימת. Windows, Mac ו-Linux מכירים אוטומטית.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            כמה כבד המוצר ואיך הוא נשמר?
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>המשקל הוא כ-1.3 ק"ג בלבד. הוא מתקפל דק ונכנס בקלות לתיק לפטופ רגיל. מגיע עם נרתיק הגנה.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span class="logo-icon">&#9651;</span>
+          <span class="logo-text">TriScreen<span class="logo-il">IL</span></span>
+        </div>
+        <p>הפתרון הישראלי לעבודה פרודוקטיבית בכל מקום</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:support@triscreen.co.il">support@triscreen.co.il</a>
+        <a href="tel:+972501234567">050-123-4567</a>
+        <a href="#">מדיניות פרטיות</a>
+        <a href="#">תנאי שימוש</a>
+      </div>
+      <div class="footer-trust">
+        <span><i class="fa fa-shield-halved"></i> תשלום מאובטח</span>
+        <span><i class="fa fa-truck-fast"></i> משלוח לכל הארץ</span>
+        <span><i class="fa fa-rotate-left"></i> 30 יום החזרה</span>
+        <span><i class="fa fa-headset"></i> תמיכה בעברית</span>
+      </div>
+      <p class="footer-copy">© 2026 TriScreen IL — כל הזכויות שמורות</p>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="mobile-sticky-cta">
+    <a href="#order" class="btn btn-primary btn-full">
+      <i class="fa fa-cart-shopping"></i>&nbsp; הזמן עכשיו — 849 ₪
+    </a>
+  </div>
+
+  <script src="store.js"></script>
+</body>
+</html>
