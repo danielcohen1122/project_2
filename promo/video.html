@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, initial-scale=1" />
+<title>TriScreen — Promo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#fff; --gray-bg:#f5f5f7; --black:#000; --text:#1d1d1f;
+    --text-2:#6e6e73; --text-3:#86868b; --blue:#0071e3; --green:#34c759;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1080px;height:1920px;overflow:hidden;}
+  body{
+    font-family:'Heebo',-apple-system,sans-serif;
+    background:#000;color:var(--text);direction:rtl;text-align:center;
+    -webkit-font-smoothing:antialiased;position:relative;
+  }
+  .stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden;}
+
+  /* Each scene fills the stage */
+  .scene{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;padding:0 90px;
+    opacity:0;visibility:hidden;transition:opacity .6s ease, visibility .6s;
+  }
+  .scene.active{opacity:1;visibility:visible;}
+
+  .bg-light{background:var(--white);}
+  .bg-gray{background:var(--gray-bg);}
+  .bg-dark{background:#000;color:#fff;}
+
+  .eyebrow{
+    font-size:34px;font-weight:600;letter-spacing:.5px;color:var(--blue);
+    margin-bottom:34px;text-transform:uppercase;
+    opacity:0;transform:translateY(20px);
+  }
+  .active .eyebrow{animation:rise .8s .1s forwards cubic-bezier(.2,.7,.2,1);}
+
+  h1{font-size:96px;line-height:1.05;font-weight:800;letter-spacing:-1.5px;
+     opacity:0;transform:translateY(30px);}
+  .active h1{animation:rise .9s .25s forwards cubic-bezier(.2,.7,.2,1);}
+
+  .sub{font-size:44px;font-weight:400;color:var(--text-2);margin-top:40px;
+       line-height:1.35;opacity:0;transform:translateY(24px);}
+  .bg-dark .sub{color:#a1a1a6;}
+  .active .sub{animation:rise .9s .5s forwards cubic-bezier(.2,.7,.2,1);}
+
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  /* ---- Scene 2 : device with three screens ---- */
+  .device{position:relative;width:900px;height:560px;margin-bottom:70px;
+          transform:perspective(1600px) rotateX(6deg);}
+  .screens{position:absolute;inset:0;display:flex;gap:14px;
+           align-items:flex-end;justify-content:center;}
+  .panel{background:linear-gradient(160deg,#1a1a1c,#0a0a0b);
+          border:3px solid #2a2a2e;border-radius:16px;overflow:hidden;
+          box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;}
+  .panel .glow{position:absolute;inset:0;opacity:.9;}
+  .panel-c{width:300px;height:480px;z-index:3;transform-origin:bottom;
+           transform:scale(0);}
+  .panel-l,.panel-r{width:260px;height:430px;z-index:2;}
+  .panel-l{transform-origin:bottom right;transform:scale(0) translateX(160px) rotateY(35deg);}
+  .panel-r{transform-origin:bottom left;transform:scale(0) translateX(-160px) rotateY(-35deg);}
+  .active .panel-c{animation:popC .7s .3s forwards cubic-bezier(.2,.8,.2,1);}
+  .active .panel-l{animation:popL .8s .6s forwards cubic-bezier(.2,.8,.2,1);}
+  .active .panel-r{animation:popR .8s .6s forwards cubic-bezier(.2,.8,.2,1);}
+  @keyframes popC{to{transform:scale(1);}}
+  @keyframes popL{to{transform:scale(1) translateX(0) rotateY(18deg);}}
+  @keyframes popR{to{transform:scale(1) translateX(0) rotateY(-18deg);}}
+  .g-blue{background:linear-gradient(150deg,#0071e3,#00c6ff);}
+  .g-purple{background:linear-gradient(150deg,#7b2ff7,#f107a3);}
+  .g-green{background:linear-gradient(150deg,#11998e,#38ef7d);}
+  .stand{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+         width:520px;height:40px;background:linear-gradient(180deg,#c8c8cc,#8e8e93);
+         border-radius:0 0 24px 24px;}
+
+  /* mini UI inside panels */
+  .ui{position:absolute;inset:18px;display:flex;flex-direction:column;gap:12px;}
+  .ui .bar{height:16px;border-radius:6px;background:rgba(255,255,255,.28);}
+  .ui .bar.s{width:55%;} .ui .bar.m{width:75%;} .ui .bar.l{width:92%;}
+  .ui .chart{margin-top:8px;height:120px;border-radius:10px;
+             background:rgba(255,255,255,.14);position:relative;overflow:hidden;}
+  .ui .chart::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:60%;
+     background:linear-gradient(180deg,transparent,rgba(255,255,255,.25));
+     clip-path:polygon(0 80%,15% 60%,30% 72%,45% 40%,60% 55%,75% 25%,90% 45%,100% 20%,100% 100%,0 100%);}
+  .ui .bars{margin-top:auto;display:flex;gap:10px;align-items:flex-end;height:120px;}
+  .ui .bars span{flex:1;background:rgba(255,255,255,.4);border-radius:5px;}
+
+  /* ---- numbers scene ---- */
+  .numbers{display:grid;grid-template-columns:1fr 1fr;gap:70px 40px;margin-top:20px;}
+  .num-item{opacity:0;transform:translateY(30px) scale(.9);}
+  .active .num-item{animation:rise .7s forwards cubic-bezier(.2,.8,.2,1);}
+  .active .num-item:nth-child(1){animation-delay:.2s;}
+  .active .num-item:nth-child(2){animation-delay:.35s;}
+  .active .num-item:nth-child(3){animation-delay:.5s;}
+  .active .num-item:nth-child(4){animation-delay:.65s;}
+  .num{font-size:130px;font-weight:800;letter-spacing:-3px;line-height:1;
+       background:linear-gradient(135deg,#0071e3,#00c6ff);
+       -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .num .unit{font-size:64px;}
+  .num-label{font-size:36px;color:var(--text-2);margin-top:14px;font-weight:500;}
+
+  /* ---- features scene ---- */
+  .feature{display:flex;flex-direction:column;align-items:center;gap:40px;}
+  .feat-row{display:flex;align-items:center;gap:34px;width:100%;
+            background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+            border-radius:28px;padding:44px 48px;text-align:right;
+            opacity:0;transform:translateX(-40px);}
+  .active .feat-row{animation:slideIn .7s forwards cubic-bezier(.2,.8,.2,1);}
+  .active .feat-row:nth-child(1){animation-delay:.2s;}
+  .active .feat-row:nth-child(2){animation-delay:.45s;}
+  .active .feat-row:nth-child(3){animation-delay:.7s;}
+  @keyframes slideIn{to{opacity:1;transform:translateX(0);}}
+  .feat-ic{width:110px;height:110px;flex:0 0 110px;border-radius:26px;
+           display:flex;align-items:center;justify-content:center;font-size:60px;
+           background:linear-gradient(150deg,#0071e3,#00c6ff);}
+  .feat-t h3{font-size:46px;font-weight:700;margin-bottom:10px;}
+  .feat-t p{font-size:32px;color:#a1a1a6;line-height:1.35;}
+
+  /* ---- price scene ---- */
+  .price-wrap{display:flex;flex-direction:column;align-items:center;}
+  .price-old{font-size:44px;color:var(--text-3);text-decoration:line-through;
+             opacity:0;}
+  .active .price-old{animation:rise .6s .2s forwards;}
+  .price{font-size:180px;font-weight:800;letter-spacing:-4px;line-height:1;
+         margin-top:6px;opacity:0;transform:scale(.7);}
+  .active .price{animation:pop .8s .4s forwards cubic-bezier(.2,.9,.2,1);}
+  @keyframes pop{to{opacity:1;transform:scale(1);}}
+  .price .cur{font-size:100px;}
+  .free{font-size:40px;color:var(--green);font-weight:600;margin-top:24px;opacity:0;}
+  .active .free{animation:rise .6s .9s forwards;}
+  .cta{margin-top:70px;background:var(--blue);color:#fff;font-size:52px;
+       font-weight:600;padding:34px 90px;border-radius:980px;opacity:0;
+       transform:translateY(30px);box-shadow:0 20px 60px rgba(0,113,227,.5);}
+  .active .cta{animation:rise .7s 1.1s forwards cubic-bezier(.2,.8,.2,1),
+                        pulse 1.6s 1.9s infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+  .wa{margin-top:38px;font-size:34px;color:#25D366;font-weight:600;opacity:0;
+      display:flex;align-items:center;gap:14px;}
+  .active .wa{animation:rise .6s 1.4s forwards;}
+  .logo-final{font-size:120px;font-weight:800;letter-spacing:-3px;
+              margin-bottom:50px;opacity:0;transform:translateY(30px);
+              background:linear-gradient(135deg,#fff,#a1a1a6);
+              -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .active .logo-final{animation:rise .8s .1s forwards cubic-bezier(.2,.8,.2,1);}
+
+  /* progress bar (subtle) */
+  .prog{position:absolute;bottom:0;left:0;height:8px;width:0;background:var(--blue);
+        z-index:99;}
+  .logo-mini{position:absolute;top:56px;left:50%;transform:translateX(-50%);
+             font-size:40px;font-weight:800;letter-spacing:-1px;z-index:50;
+             color:var(--text);opacity:.0;transition:opacity .5s,color .5s;}
+  .logo-mini.on{opacity:.85;}
+  .logo-mini.light{color:#fff;}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <div class="logo-mini" id="logoMini">TriScreen</div>
+
+  <!-- Scene 1 : Hook -->
+  <section class="scene bg-light" data-scene="1">
+    <div class="eyebrow">שאלה אחת</div>
+    <h1>עדיין עובד<br/>על מסך אחד?</h1>
+    <div class="sub">כל אפליקציה מכסה את השנייה.<br/>Alt+Tab בלי סוף.</div>
+  </section>
+
+  <!-- Scene 2 : Reveal -->
+  <section class="scene bg-dark" data-scene="2">
+    <div class="device">
+      <div class="screens">
+        <div class="panel panel-l"><div class="glow g-purple"></div>
+          <div class="ui"><div class="bar l"></div><div class="bar m"></div>
+            <div class="chart"></div><div class="bar s"></div></div></div>
+        <div class="panel panel-c"><div class="glow g-blue"></div>
+          <div class="ui"><div class="bar m"></div><div class="bar l"></div>
+            <div class="chart"></div><div class="bar s"></div><div class="bar m"></div></div></div>
+        <div class="panel panel-r"><div class="glow g-green"></div>
+          <div class="ui"><div class="bar s"></div>
+            <div class="bars"><span style="height:40%"></span><span style="height:72%"></span>
+              <span style="height:55%"></span><span style="height:88%"></span><span style="height:63%"></span></div>
+            <div class="bar m"></div></div></div>
+      </div>
+      <div class="stand"></div>
+    </div>
+    <h1 style="color:#fff">שלושה מסכים.<br/>אפשרויות אינסופיות.</h1>
+    <div class="sub">TriScreen Pro 15.6" — מסך נייד משולש.</div>
+  </section>
+
+  <!-- Scene 3 : Numbers -->
+  <section class="scene bg-gray" data-scene="3">
+    <div class="eyebrow">המספרים שחשובים</div>
+    <div class="numbers">
+      <div class="num-item"><div class="num">15.6<span class="unit">"</span></div><div class="num-label">מסך בכל צד</div></div>
+      <div class="num-item"><div class="num">1080<span class="unit">P</span></div><div class="num-label">Full HD חד</div></div>
+      <div class="num-item"><div class="num">10<span class="unit">″</span></div><div class="num-label">שניות הרכבה</div></div>
+      <div class="num-item"><div class="num">3×</div><div class="num-label">יותר שטח עבודה</div></div>
+    </div>
+  </section>
+
+  <!-- Scene 4 : Features -->
+  <section class="scene bg-dark" data-scene="4">
+    <div class="feature">
+      <div class="feat-row">
+        <div class="feat-ic">🔌</div>
+        <div class="feat-t"><h3>כבל USB-C אחד</h3><p>ללא דרייברים, ללא התקנה. Mac, Windows ו-Linux.</p></div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-ic">🎒</div>
+        <div class="feat-t"><h3>1.3 ק"ג בלבד</h3><p>נכנס לתיק הלפטופ. שטח העבודה הולך איתך.</p></div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-ic">🛡️</div>
+        <div class="feat-t"><h3>30 יום החזר מלא</h3><p>לא אהבת? מחזירים כסף. בלי שאלות.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 5 : Who -->
+  <section class="scene bg-light" data-scene="5">
+    <div class="eyebrow">מי משתמש בו</div>
+    <h1>עובד לכולם.<br/>מדויק לך.</h1>
+    <div class="sub">מפתחים · סוחרים · עובדי היי-טק<br/>עורכי תוכן · סטודנטים</div>
+  </section>
+
+  <!-- Scene 6 : Price + CTA -->
+  <section class="scene bg-dark" data-scene="6">
+    <div class="logo-final">TriScreen</div>
+    <div class="price-wrap">
+      <div class="price-old">1,499 ₪</div>
+      <div class="price">1,099<span class="cur"> ₪</span></div>
+      <div class="free">✓ כולל משלוח חינם</div>
+    </div>
+    <div class="cta">הזמן עכשיו ←</div>
+    <div class="wa">💬 זמינים בוואטסאפ</div>
+  </section>
+
+  <div class="prog" id="prog"></div>
+</div>
+
+<script>
+  const scenes=[...document.querySelectorAll('.scene')];
+  const prog=document.getElementById('prog');
+  const logoMini=document.getElementById('logoMini');
+  // scene start times (ms)  -> [scene index (1-based), enter time]
+  const timeline=[
+    {i:1,t:0,dark:false},
+    {i:2,t:4200,dark:true},
+    {i:3,t:9600,dark:false},
+    {i:4,t:14200,dark:true},
+    {i:5,t:20000,dark:false},
+    {i:6,t:24600,dark:true},
+  ];
+  const TOTAL=30000;
+  function show(idx){
+    scenes.forEach(s=>s.classList.toggle('active', +s.dataset.scene===idx));
+  }
+  function run(){
+    const start=performance.now();
+    timeline.forEach(step=>{
+      setTimeout(()=>{
+        show(step.i);
+        logoMini.classList.add('on');
+        logoMini.classList.toggle('light', step.dark);
+      }, step.t);
+    });
+    function tick(now){
+      const p=Math.min((now-start)/TOTAL,1);
+      prog.style.width=(p*100)+'%';
+      if(p<1) requestAnimationFrame(tick);
+      else document.body.dataset.done="1";
+    }
+    requestAnimationFrame(tick);
+  }
+  // signal ready, autostart
+  window.__start=run;
+  window.addEventListener('load',()=>{ if(!window.__manual) run(); });
+</script>
+</body>
+</html>
